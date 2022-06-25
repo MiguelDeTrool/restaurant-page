@@ -1,11 +1,8 @@
 import './home.scss';
 
-export default function component() {
-    const element = document.createElement('div');
+export default function createHomeDOM() {
+    const homeDom = document.createElement('div');
+    homeDom.textContent = "home";
 
-    element.textContent = "home";
-
-    element.classList.add('hello');
-
-    return element;
+    return homeDom;
 };

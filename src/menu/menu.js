@@ -1,11 +1,8 @@
 import './menu.scss'; 
 
-export default function component() {
-    const element = document.createElement('div');
+export default function createMenuDOM() {
+    const menuDom = document.createElement('div');
+    menuDom.textContent = "MENU";
 
-    element.textContent = "menu";
-
-    element.classList.add('hello');
-
-    return element;
+    return menuDom;
 };

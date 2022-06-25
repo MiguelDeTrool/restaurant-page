@@ -1,66 +1,42 @@
 import "./reset.scss";
 import "./index.scss";
 
+import init from "./init/init.js";
 import home from "./home/home.js";
 import menu from "./menu/menu.js";
 import contact from "./contact/contact.js";
 
 
-//Write frame here
-//Then add event listeners to each button that removes all content of ".main" and replaces with return of each module
+//Write frame in init file here DONE
+//Then add event listeners to each button that removes all content of "#content" and replaces with return of each module
+//Event listeners are working, need to make callback function work, and make sure the exported function works too
 
-const frame = (() => {
-    const frame = document.querySelector("#frame");
 
-    const _createHeader = (parent) => {
-        let header = document.createElement("header");
+init.createAllPageElements();
 
-        // Create header tree with innerHTML, all hard-coded, no security risk
-        header.innerHTML = `
-        <h1>Chip hut by the sea</h1>
-        <nav>
-            <button id="home">Home</button>
-            <button id="menu">Menu</button>
-            <button id="contact">Contact</button>        
-        </nav>
-        `;
 
-        parent.appendChild(header);
+const buttonHandler = (() => {
+    let main = document.querySelector("#content");
+    let _homeButton = document.querySelector("#home");
+    let _menuButton = document.querySelector("#menu");
+    let _contactButton = document.querySelector("#contact");
+
+    main.innerHTML = "hi";
+
+    const _replaceDOM = (section) => {
+        main.innerHTML = ""; // Replace content with empty string to clear it
+        main.appendChild = section();
     };
 
-    const _createBody = parent => {
-        let body = document.createElement("div");
-        body.classList.add("body");
-
-        let contentDiv = document.createElement("div");
-        contentDiv.id = "content";
-        body.appendChild(contentDiv);
-
-        parent.appendChild(body);
-    };
-
-    const _createFooter = parent => {
-        let footer = document.createElement("footer");
-
-        // Create footer tree with innerHTML, all hard-coded, no security risk
-        footer.innerHTML = `
-        <div class="flex-util">Legal Info</div>
-        <div class="copyright">Copyright 2022</div>
-        <a href="/legal">Legal Info</a>
-        `;
-
-        parent.appendChild(footer);
-    };
-
-    const createAllPageElements = () => {
-        _createHeader(frame);
-        _createBody(frame);
-        _createFooter(frame);
+    const createAllButtonEventListeners = () => {
+        _homeButton.addEventListener("click", () => {_replaceDOM(home)});
+        _menuButton.addEventListener("click", () => {_replaceDOM(menu)});
+        _contactButton.addEventListener("click", () => {_replaceDOM(contact)});
     };
 
     return {
-        createAllPageElements,
+        createAllButtonEventListeners,
     }
 })();
 
-frame.createAllPageElements();
+buttonHandler.createAllButtonEventListeners();

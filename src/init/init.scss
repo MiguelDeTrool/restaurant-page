@@ -1,0 +1,83 @@
+#frame {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 20% 1fr 6%;
+}
+
+#frame header {
+    background-color: var(--dark-background);
+    color: var(--accent-color);
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
+    h1 {
+        margin-top: auto;
+        font-size: 2.5rem;
+    }
+
+    nav {
+        margin-top: auto;
+        padding: 0.5rem 0;
+
+        button {
+            background: none;
+            color: inherit;
+            border: none;
+            padding: 0;
+            font: inherit;
+            outline: inherit;
+
+            margin: 0 0.5rem;
+
+            &:hover {
+                transition: 200ms;
+                transform: translateY(-4px);
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+#frame .body {
+    background: center/cover url(img/fish-and-chips.jpg);
+    filter: brightness(80%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    #content {
+        background-color: black;
+        filter: opacity(0.4);
+        width: 85%;
+        height: 85%;
+    }
+}
+
+#frame footer {
+    --list-padding: 20px;
+
+    background-color: var(--dark-background);
+    color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+
+    .flex-util {
+        // Only used to center copyright
+        margin-right: auto;
+        margin-left: var(--list-padding);
+        visibility: hidden;
+    }
+
+    .copyright {}
+
+    a {
+        color: inherit;
+        margin-left: auto;
+        margin-right: var(--list-padding);
+    }
+
+}
+
+#frame footer div {}
