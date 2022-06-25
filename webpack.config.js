@@ -10,7 +10,19 @@ module.exports = {
         filename: 'main.js',
         path: path.resolve(__dirname, 'dist'),
     },
-    optimization: {
-        runtimeChunk: 'single',
+    module: {
+        rules: [
+            {
+                test: /\.css$/i,
+                use: ['style-loader', 'css-loader'],
+            },
+            {
+                test: /\.scss$/i,
+                use: ['style-loader', 'css-loader', 'sass-loader'],
+            },
+        ],
     },
+    // optimization: {
+    //     runtimeChunk: 'single',
+    // },
 }
