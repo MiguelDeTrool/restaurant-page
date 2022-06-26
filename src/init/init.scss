@@ -13,7 +13,7 @@
 
     h1 {
         margin-top: auto;
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
 
     nav {
@@ -40,17 +40,25 @@
 }
 
 #frame .body {
-    background: center/cover url(img/fish-and-chips.jpg);
-    filter: brightness(80%);
     display: flex;
     align-items: center;
     justify-content: center;
+    
+    background: center/cover url(img/fish-and-chips.jpg);
 
     #content {
-        background-color: black;
-        filter: opacity(0.4);
+        color: #FFF;
+        padding: 1rem;
+        background-color: rgba(0, 0, 0, 0.6);
         width: 85%;
         height: 85%;
+        line-height: 1.2;
+
+        h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
     }
 }
 

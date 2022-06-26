@@ -7,9 +7,13 @@ import menu from "./menu/menu.js";
 import contact from "./contact/contact.js";
 
 
-//Write frame in init file here DONE
-//Then add event listeners to each button that removes all content of "#content" and replaces with return of each module
-//Event listeners are working, need to make callback function work, and make sure the exported function works too
+//DONE Write frame in init file here
+
+// DONE Then add event listeners to each button that removes all content of "#content" and replaces with return of each module 
+
+// Create each "page"
+
+// Only menu left, need a couple cards, cod, sausage, chips
 
 
 init.createAllPageElements();
@@ -21,18 +25,20 @@ const buttonHandler = (() => {
     let _menuButton = document.querySelector("#menu");
     let _contactButton = document.querySelector("#contact");
 
-    main.innerHTML = "hi";
-
     const _replaceDOM = (section) => {
         main.innerHTML = ""; // Replace content with empty string to clear it
-        main.appendChild = section();
+        main.appendChild(section());
     };
+
+    // Initialize content with Home page
+    _replaceDOM(home);
 
     const createAllButtonEventListeners = () => {
         _homeButton.addEventListener("click", () => {_replaceDOM(home)});
         _menuButton.addEventListener("click", () => {_replaceDOM(menu)});
         _contactButton.addEventListener("click", () => {_replaceDOM(contact)});
     };
+
 
     return {
         createAllButtonEventListeners,

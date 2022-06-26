@@ -36,7 +36,7 @@ const frame = (() => {
         // Create footer tree with innerHTML, all hard-coded, no security risk
         footer.innerHTML = `
         <div class="flex-util">Legal Info</div>
-        <div class="copyright">Copyright 2022</div>
+        <div class="copyright">Copyright © 2022</div>
         <a href="/legal">Legal Info</a>
         `;
 
